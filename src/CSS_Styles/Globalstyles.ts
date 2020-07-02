@@ -3,6 +3,9 @@ import reset from 'styled-reset';
 
 const GlobalStyle = createGlobalStyle`
 ${reset};
+  html{
+  scroll-behavior: smooth;
+  }
   * {
     box-sizing: border-box;
   }

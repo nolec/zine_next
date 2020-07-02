@@ -1,7 +1,7 @@
 import Document, {DocumentContext, Html, Main} from 'next/document'
 import {ServerStyleSheet} from 'styled-components'
 import React from "react";
-import Meta from "./partials/Meta";
+import Meta from "../partials/Meta";
 
 export default class MyDocument extends Document {
     static async getInitialProps(ctx: DocumentContext) {
@@ -17,13 +17,11 @@ export default class MyDocument extends Document {
             return {
                 ...initialProps,
                 styles: (
-                    <>
                         <Html lang="kr">
                             <Meta title="home"/>
                             {initialProps.styles}
                             {sheet.getStyleElement()}
                         </Html>
-                    </>
                 ),
             }
         } finally {

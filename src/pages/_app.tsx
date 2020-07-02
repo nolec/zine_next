@@ -4,11 +4,13 @@ import {AppContext, AppInitialProps, AppProps} from "next/app";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 import {Router} from "next/router";
-import Layout from "./components/Layout";
-import GlobalStyle from "./CSS_Styles/Globalstyles";
-import ContextProvider from "./contextAPI/contextProvider";
+import Layout from "../components/Layout";
+import GlobalStyle from "../CSS_Styles/Globalstyles";
+import ContextProvider from "../contextAPI/contextProvider";
 import {ThemeProvider} from "styled-components";
-import theme from "./CSS_Styles/CSS";
+import theme from "../CSS_Styles/CSS";
+import {ApolloProvider} from "@apollo/react-hooks";
+import {useApollo} from "../lib/apolloClient";
 
 NProgress.configure({showSpinner: false, trickleSpeed: 300})
 
@@ -25,15 +27,18 @@ Router.events.on('routeChangeError', () => {
 })
 
 const MyApp: NextComponentType<AppContext, AppInitialProps, AppProps> = ({Component, pageProps}) => {
+    const apolloClient = useApollo(pageProps.initialApolloState);
     return (
-        <ContextProvider>
-            <ThemeProvider theme={theme}>
-                <Layout>
-                    <GlobalStyle/>
-                    <Component {...pageProps}/>
-                </Layout>
-            </ThemeProvider>
-        </ContextProvider>
+        <ApolloProvider client={apolloClient}>
+            <ContextProvider>
+                <ThemeProvider theme={theme}>
+                    <Layout>
+                        <GlobalStyle/>
+                        <Component {...pageProps}/>
+                    </Layout>
+                </ThemeProvider>
+            </ContextProvider>
+        </ApolloProvider>
     )
 }
 export default MyApp;

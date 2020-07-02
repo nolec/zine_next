@@ -15,9 +15,11 @@ interface ISectionProps {
     padding?: string
     borderTop?: string
     aI?: string
+    flexBasis?: string
+    textAlign?: string
 }
 
-export const Section = styled.section<ISectionProps>`
+export const C_Section = styled.section<ISectionProps>`
     position : ${props => props.position};
     top : ${props => props.top};
     left : ${props => props.left};
@@ -33,24 +35,40 @@ export const Section = styled.section<ISectionProps>`
     border-top : ${props => props.borderTop};
     align-items : ${props => props.aI};
 `
+export const C_ImgBox = styled.div<ISectionProps>`
+    width : ${props => props.width};
+    height : ${props => props.height};
+    margin : ${props => props.margin};
+    padding : ${props => props.padding};
+    flex-basis : ${props => props.flexBasis};
+`
+export const C_TextBox = styled.div<ISectionProps>`
+    width : ${props => props.width};
+    height : ${props => props.height};
+    margin : ${props => props.margin};
+    padding : ${props => props.padding};
+    flex-basis : ${props => props.flexBasis};
+    text-align: ${props => props.textAlign};
+`
 
 export interface IBannerCSSProps {
-    banner? : {
-        margin? : string
+    banner?: {
+        margin?: string
+        padding?: string
     }
     container?: {
         width?: string
         height?: string
         padding?: string
     }
-    contentBox? : {
-        margin? : string
+    contentBox?: {
+        margin?: string
     }
 
 }
 
 export interface IHeaderCSSProps extends IBannerCSSProps {
-    header? : {top? : string}
+    header?: { top?: string }
     start?: {
         width?: string
     }
@@ -58,15 +76,15 @@ export interface IHeaderCSSProps extends IBannerCSSProps {
     end?: {}
 }
 
-export const BannerCSS = ({container, contentBox}: IBannerCSSProps) => css`
+const BannerCSS = ({banner, container, contentBox}: IBannerCSSProps) => css`
     color : white;
+              padding : ${banner?.padding};
     #container {
         width : ${container?.width};
         height : ${container?.height};
         padding : ${container?.padding};
         .content_box {
           height : 100%;
-          margin : ${contentBox?.margin};
           background-color : #000000;
           display : flex;
           justify-content: center;
@@ -74,7 +92,7 @@ export const BannerCSS = ({container, contentBox}: IBannerCSSProps) => css`
         }
     }
 `;
-export const HeaderCSS = ({header,container, start, center, end}: IHeaderCSSProps) => css`
+const HeaderCSS = ({header, container, start, center, end}: IHeaderCSSProps) => css`
     position: fixed;
     top : ${header?.top};
     width : 100%;
@@ -85,7 +103,14 @@ export const HeaderCSS = ({header,container, start, center, end}: IHeaderCSSProp
         padding : ${container?.padding};
         display : flex;
         justify-content: space-between;
-        align-items: center;        
+        align-items: center;
+        .icon_box {
+          width : 49px;
+          svg {
+            font-size: 50px;
+            width: 100%;
+          }
+        }       
     }
     #start {
       .back {
@@ -97,16 +122,27 @@ export const HeaderCSS = ({header,container, start, center, end}: IHeaderCSSProp
     #center {
     }
     #end {
-    display : flex;
-      a {
-          display : block;
-          width : 49px;
-          height : 100%;      
+      .content_box {
+          display : flex;
+          height : 100%; 
+          > a{
+            width : 43px;
+            padding : 0 4px;
+            margin : 0 6px;
+            .icon_box {
+              width : 100%;
+            }
+            &:first-child {
+              margin-left: 0;
+            }
+            &:last-child{
+              margin-right : 0;
+            }
+          }     
+
       }
     }
-
 `;
-
 const theme = {
     css: {
         banner: BannerCSS,

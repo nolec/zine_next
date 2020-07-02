@@ -10,10 +10,10 @@ interface IBannerProps extends IBannerCSSProps {
     title?: string
 }
 
-export default ({container, contentBox, title}: IBannerProps) => {
+export default ({banner, container, contentBox, title}: IBannerProps) => {
     return (
-        <Banner container={{width: "100%", height: container?.height, padding: container?.padding}}
-                contentBox={{margin: contentBox?.margin}}>
+        <Banner banner={{padding: banner?.padding}}
+                container={{width: "100%", height: container?.height, padding: container?.padding}}>
             <div id="container">
                 <div className="content_box">
                     <p>{title}</p>
