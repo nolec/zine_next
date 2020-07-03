@@ -49,7 +49,6 @@ export const C_TextBox = styled.div<ISectionProps>`
   padding: ${(props) => props.padding};
   flex-basis: ${(props) => props.flexBasis};
   text-align: ${(props) => props.textAlign};
-  flex-grow: 1;
 `;
 
 export interface IBannerCSSProps {

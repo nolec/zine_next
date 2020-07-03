@@ -9,10 +9,8 @@ import {GET_ARTICLES} from "../graphql";
 
 interface IIndexProps {
     initialApolloState: {}
-    unstable_revalidate: number
 }
 export default ({initialApolloState} : IIndexProps) => {
-    console.log(initialApolloState);
     return (
         <>
             <Banner container={{height: "60px"}} title="탑 배너"/>
@@ -31,7 +29,6 @@ export const getServerSideProps = async (ctx: GetServerSidePropsContext<ParsedUr
     return {
         props: {
             initialApolloState: apolloClient.cache.extract(),
-            unstable_revalidate: 1
         }
     }
 }

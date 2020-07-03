@@ -19,8 +19,8 @@ export default () => {
             <SectionTwo/>
             <SectionThree/>
             <SectionFour/>
-            <Banner container={{height: "150px", padding: "0 0"}} banner={{padding: "120px 0"}}
-                    title="중간 배너"/>
+            <Banner container={{height: "150px", padding: "0 0"}} banner={{padding: "120px 0 0 0"}}
+                    title="푸터 배너"/>
         </Main>
     )
 }

@@ -1,7 +1,8 @@
-import React, {useContext} from "react";
-import {C_Section, C_TextBox} from "../../CSS_Styles/CSS";
+import React, {DetailedHTMLProps, LiHTMLAttributes, useContext} from "react";
+import {C_Section, C_TextBox, C_ImgBox} from "../../CSS_Styles/CSS";
 import styled from "styled-components";
 import Context from "../../contextAPI/context";
+import ContentItem from "./ContentItem";
 
 const Container = styled.div``;
 const ContentBox = styled.div`
@@ -13,18 +14,17 @@ const HeaderBox = styled.header`
   width : 100%;
   border-bottom: 3px solid black;
 `;
-const Title = styled.h2`
+const MainTitle = styled.h2`
   font-weight: bold;
   font-size : 30px;
 `;
 
 const ContentMain = styled.div`
-    ul {
-      display : flex;
-    }
+    width : 100%;
+    padding : 10px 0;
 `;
 
-const SectionTwo = () => {
+const SectionTwo: React.FC = () => {
     const {articlesData, articlesLoading} = useContext(Context);
 
 
@@ -34,13 +34,11 @@ const SectionTwo = () => {
                 <ContentBox>
                     <HeaderBox>
                         <C_TextBox width={"100%"} padding={"10px 0"}>
-                            <Title>Place</Title>
+                            <MainTitle>Place</MainTitle>
                         </C_TextBox>
                     </HeaderBox>
                     <ContentMain>
-                        <ul>
-                            {articlesData?.articles?.map((item: any) => <li>{item.title}</li>)}
-                        </ul>
+                        <ContentItem articlesData={articlesData} count={3}/>
                     </ContentMain>
                 </ContentBox>
             </Container>

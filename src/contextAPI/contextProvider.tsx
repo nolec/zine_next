@@ -1,7 +1,8 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Context from "./context";
 import {useQuery} from "@apollo/react-hooks"
-import {GET_ARTICLES} from "../graphql";
+import {GET_ARTICLE, GET_ARTICLES} from "../graphql";
+import {NextRouter, useRouter} from "next/router";
 
 const ContextProvider: React.FC = ({children}) => {
 

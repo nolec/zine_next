@@ -1,31 +1,44 @@
-import React from "react";
+import React, {useContext} from "react";
 import {C_TextBox, C_Section} from "../../CSS_Styles/CSS";
 import styled from "styled-components";
+import ContentItem from "./ContentItem";
+import Context from "../../contextAPI/context";
 
 const Container = styled.div``;
 const ContentBox = styled.div`
   display : flex;
+  flex-direction: column;
   flex-wrap: nowrap;
 `;
 const HeaderBox = styled.header`
   width : 100%;
   border-bottom: 3px solid black;
 `;
-const Title = styled.h2`
+const MainTitle = styled.h2`
   font-weight: bold;
   font-size : 30px;
 `;
 
+const ContentMain = styled.div`
+    width : 100%;
+    padding : 10px 0;
+`;
+
 const SectionThree = () => {
+    const {articlesData, articlesLoading} = useContext(Context);
+
     return (
         <C_Section margin={"0 0 0 0"}>
             <Container>
                 <ContentBox>
                     <HeaderBox>
                         <C_TextBox width={"100%"} padding={"10px 0"}>
-                            <Title>Special order</Title>
+                            <MainTitle>Special order</MainTitle>
                         </C_TextBox>
                     </HeaderBox>
+                    <ContentMain>
+                        <ContentItem articlesData={articlesData} count={2}/>
+                    </ContentMain>
                 </ContentBox>
             </Container>
         </C_Section>
