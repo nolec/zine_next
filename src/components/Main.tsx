@@ -7,7 +7,7 @@ import SectionFour from "./Sections/SectionFour";
 import styled from "styled-components";
 
 const Main = styled.main`
-  padding : 0 45px;
+  padding : 45px 45px 0 45px;
 `;
 
 export default () => {

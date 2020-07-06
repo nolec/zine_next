@@ -25,9 +25,7 @@ const ContentMain = styled.div`
 `;
 
 const SectionTwo: React.FC = () => {
-    const {articlesData, articlesLoading} = useContext(Context);
-
-
+    const {placeData, placeFetchMore, placeLimit, placeTotal, handleLimit} = useContext(Context);
     return (
         <C_Section margin={"0 0 0 0"}>
             <Container>
@@ -38,7 +36,8 @@ const SectionTwo: React.FC = () => {
                         </C_TextBox>
                     </HeaderBox>
                     <ContentMain>
-                        <ContentItem articlesData={articlesData} count={3}/>
+                        <ContentItem articlesData={placeData} count={3} fetchMore={placeFetchMore} limit={placeLimit}
+                                     total={placeTotal?.totalCount} handleLimit={handleLimit} which={"first"}/>
                     </ContentMain>
                 </ContentBox>
             </Container>

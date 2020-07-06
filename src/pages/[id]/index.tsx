@@ -7,22 +7,11 @@ import {GetServerSidePropsContext} from "next";
 import {initializeApollo} from "../../lib/apolloClient";
 
 interface IHtmlParserProps {
-    article: { container: [] }
     initialApolloState: {}
     id: string
 }
 
-interface IStyles {
-    fontSize: string,
-    display: string,
-    margin: string,
-    fontWeight: string,
-    overflow: string,
-    textOverflow: string,
-    whiteSpace: string
-}
-
-const SectionContWrap = styled.div<IStyles>`
+const SectionContWrap = styled.div`
     overflow : hidden;
     
     &.sectionContWrap > div:not(.GoodsItem) + div.GoodsItem {
@@ -32,7 +21,7 @@ const SectionContWrap = styled.div<IStyles>`
         clear : both;
     }`
 
-const VideoWrapper = styled.div<IStyles>`
+const VideoWrapper = styled.div`
         position : relative;
         padding-bottom : 56.25%;
         padding-top : 25px;
@@ -45,7 +34,7 @@ const VideoWrapper = styled.div<IStyles>`
 
 const Detail: React.FC<IHtmlParserProps> = ({initialApolloState, id}) => {
 
-    const [article, setArticle] = useState();
+    const [article, setArticle] = useState({container: []});
     const {data: articleData} = useQuery(GET_ARTICLE, {
         variables: {
             id
@@ -62,7 +51,7 @@ const Detail: React.FC<IHtmlParserProps> = ({initialApolloState, id}) => {
         <div className={'eventCont'} style={{width: '1150px', margin: '0 auto'}}>
             <section style={{overflow: 'hidden'}}>
                 <SectionContWrap className={'sectionContWrap'}>
-                    {article?.container?.map((item: any, index: number) => {
+                    {article?.container?.map((item: any, index: number): any => {
                         if (item.image.includes('https://saracen.azureedge.net/img/template/goods')) {
                             return (
                                 <div className={'GoodsItem'} key={index}
@@ -76,7 +65,7 @@ const Detail: React.FC<IHtmlParserProps> = ({initialApolloState, id}) => {
                                             fontSize: '1.4em',
                                             display: 'block',
                                             margin: '10px 0 5px 0',
-                                            fontWeight: '530',
+                                            fontWeight: 'bold',
                                             overflow: 'hidden',
                                             textOverflow: 'ellipsis',
                                             whiteSpace: 'nowrap'
@@ -90,7 +79,7 @@ const Detail: React.FC<IHtmlParserProps> = ({initialApolloState, id}) => {
                                                                     display: 'block',
                                                                     fontSize: '4em',
                                                                     color: '#f5588b',
-                                                                    fontWeight: '600',
+                                                                    fontWeight: 'bold',
                                                                     float: 'right',
                                                                     paddingTop: '15px'
                                                                 }}>{Math.floor((item.price.market - item.price.retailSale) / item.price.market * 100) + "% "}</span>
@@ -107,7 +96,7 @@ const Detail: React.FC<IHtmlParserProps> = ({initialApolloState, id}) => {
                                                             <span style={{
                                                                 color: '#f5588b',
                                                                 fontSize: '2.2em',
-                                                                fontWeight: '600'
+                                                                fontWeight: 'bold'
                                                             }}>{`${item.price.retailSale}원`}</span>
                                                         </div>
                                                     </>
@@ -118,7 +107,7 @@ const Detail: React.FC<IHtmlParserProps> = ({initialApolloState, id}) => {
                                                                 fontSize: '2.2em',
                                                                 display: 'block',
                                                                 margin: '15px 0 0 0',
-                                                                fontWeight: '600'
+                                                                fontWeight: 'bold'
                                                             }}>{`${item.price.retailSale}원`}</span>
                                                     </div>
                                             }
@@ -151,7 +140,7 @@ const Detail: React.FC<IHtmlParserProps> = ({initialApolloState, id}) => {
                                         (item.imgLink?.use && item.imgLink.href !== '')
                                             ?
                                             <div
-                                                style={{width: `${item.width}%`, float: `${item.float}`}}>
+                                                style={{width: `${item.width}%`, float: item.float}}>
                                                 <a href={item.imgLink.href} style={{display: 'block'}}
                                                    target='_blank' rel='noopener noreferrer'>
                                                     <img src={item.image} alt={item.alt}
@@ -160,7 +149,7 @@ const Detail: React.FC<IHtmlParserProps> = ({initialApolloState, id}) => {
                                             </div>
                                             :
                                             <div
-                                                style={{width: `${item.width}%`, float: `${item.float}`}}>
+                                                style={{width: `${item.width}%`, float: item.float}}>
                                                 <img src={item.image} alt={item.alt} style={{
                                                     display: 'block',
                                                     width: '100%',

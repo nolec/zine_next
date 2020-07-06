@@ -1,10 +1,6 @@
 import React, {useContext, useEffect} from "react";
 import {C_Section, C_ImgBox, C_TextBox} from "../../CSS_Styles/CSS";
 import styled from "styled-components";
-import {ParsedUrlQuery} from "querystring";
-import {GetServerSidePropsContext} from "next";
-import {initializeApollo} from "../../lib/apolloClient";
-import {GET_ARTICLES} from "../../graphql";
 import Context from "../../contextAPI/context";
 import Link from "next/link";
 
@@ -44,7 +40,7 @@ const Bottom = styled.div`
 `;
 
 const SectionOne = () => {
-    const {articlesData, articlesLoading} = useContext(Context);
+    const {placeData,specialOrderData,postingData} = useContext(Context);
 
     return (
         <C_Section margin={"70px 0 0 0"}>
@@ -52,14 +48,14 @@ const SectionOne = () => {
                 <ContentBox>
                     <Left>
                         <ItemContainer>
-                            <Link href="/[id]" as={`/${articlesData?.articles[0]?.id}`}>
+                            <Link href="/[id]" as={`/${placeData?.articles[0]?.id}`}>
                                 <a>
                                     <C_ImgBox>
-                                        <img src={articlesData?.articles[0]?.squareThumbnail}/>
+                                        <img src={placeData?.articles[0]?.squareThumbnail}/>
                                     </C_ImgBox>
                                     <C_TextBox padding={"20px 20px 0 20px"} textAlign={"center"}>
-                                        <Title>{articlesData?.articles[0]?.title}</Title>
-                                        <Text>{articlesData?.articles[0]?.subtitle}</Text>
+                                        <Title>{placeData?.articles[0]?.title}</Title>
+                                        <Text>{placeData?.articles[0]?.subtitle}</Text>
                                     </C_TextBox>
                                 </a>
                             </Link>
@@ -67,15 +63,15 @@ const SectionOne = () => {
                     </Left>
                     <Right>
                         <ItemContainer>
-                            <Link href="/[id]" as={`/${articlesData?.articles[1]?.id}`}>
+                            <Link href="/[id]" as={`/${specialOrderData?.articles[0]?.id}`}>
                                 <a>
                                     <Top>
                                         <C_ImgBox flexBasis={"50%"}>
-                                            <img src={articlesData?.articles[1]?.squareThumbnail}/>
+                                            <img src={specialOrderData?.articles[0]?.squareThumbnail}/>
                                         </C_ImgBox>
                                         <C_TextBox padding={"20px 20px 20px 20px"} textAlign={"center"}>
-                                            <Title>{articlesData?.articles[1]?.title}</Title>
-                                            <Text>{articlesData?.articles[1]?.subtitle}</Text>
+                                            <Title>{specialOrderData?.articles[0]?.title}</Title>
+                                            <Text>{specialOrderData?.articles[0]?.subtitle}</Text>
                                         </C_TextBox>
                                     </Top>
                                 </a>
@@ -83,7 +79,7 @@ const SectionOne = () => {
 
                         </ItemContainer>
                         <ItemContainer>
-                            <Link href="/[id]" as={`/${articlesData?.articles[2]?.id}`}>
+                            <Link href="/[id]" as={`/${postingData?.articles[0]?.id}`}>
                                 <a>
                                     <Bottom>
                                         <C_TextBox
@@ -91,11 +87,11 @@ const SectionOne = () => {
                                             flexBasis={"50%"}
                                             textAlign={"auto"}
                                         >
-                                            <Title>{articlesData?.articles[2]?.title}</Title>
-                                            <Text>{articlesData?.articles[2]?.subtitle}</Text>
+                                            <Title>{postingData?.articles[0]?.title}</Title>
+                                            <Text>{postingData?.articles[0]?.subtitle}</Text>
                                         </C_TextBox>
                                         <C_ImgBox flexBasis={"50%"}>
-                                            <img src={articlesData?.articles[2]?.squareThumbnail}/>
+                                            <img src={postingData?.articles[0]?.squareThumbnail}/>
                                         </C_ImgBox>
                                     </Bottom>
                                 </a>

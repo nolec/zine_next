@@ -25,7 +25,7 @@ const ContentMain = styled.div`
 `;
 
 const SectionThree = () => {
-    const {articlesData, articlesLoading} = useContext(Context);
+    const {specialOrderData, specialFetchMore, specialLimit, specialTotal, handleLimit} = useContext(Context);
 
     return (
         <C_Section margin={"0 0 0 0"}>
@@ -37,7 +37,8 @@ const SectionThree = () => {
                         </C_TextBox>
                     </HeaderBox>
                     <ContentMain>
-                        <ContentItem articlesData={articlesData} count={2}/>
+                        <ContentItem articlesData={specialOrderData} count={2} fetchMore={specialFetchMore} limit={specialLimit}
+                                     total={specialTotal?.totalCount} handleLimit={handleLimit} which={"second"}/>
                     </ContentMain>
                 </ContentBox>
             </Container>

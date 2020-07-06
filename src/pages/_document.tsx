@@ -18,7 +18,6 @@ export default class MyDocument extends Document {
                 ...initialProps,
                 styles: (
                         <Html lang="kr">
-                            <Meta title="home"/>
                             {initialProps.styles}
                             {sheet.getStyleElement()}
                         </Html>

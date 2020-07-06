@@ -10,13 +10,14 @@ import {
 import { faUser } from "@fortawesome/free-regular-svg-icons";
 import Link from "next/link";
 import Context from "src/contextAPI/context";
+import Search from "./Search";
 
 const Header = styled.header<IHeaderCSSProps>`
   ${(props) => props.theme.css.header(props)}
 `;
 
 export default () => {
-  const { top, topHandle } = useContext(Context);
+  const { top, topHandle,modalHandle } = useContext(Context);
   useEffect(() => {
     topHandle(window.scrollY);
     window.addEventListener("scroll", () => topHandle(window.scrollY));
@@ -49,24 +50,29 @@ export default () => {
         <div id="center"></div>
         <div id="end">
           <div className="content_box">
-            <a className="myPage">
-              <div className="icon_box">
-                <FontAwesomeIcon icon={faUser} />
-              </div>
-            </a>
-            <a className="search">
+            <Link href="/[id]" as="/123">
+              <a className="myPage">
+                <div className="icon_box">
+                  <FontAwesomeIcon icon={faUser} />
+                </div>
+              </a>
+            </Link>
+            <button onClick={modalHandle} className="search">
               <div className="icon_box">
                 <FontAwesomeIcon icon={faSearch} />
               </div>
-            </a>
+            </button>
+            <Link href="/[id]" as="/123">
             <a className="basket">
               <div className="icon_box">
                 <FontAwesomeIcon icon={faShoppingBag} />
               </div>
             </a>
+            </Link>
           </div>
         </div>
       </div>
+      <Search/>
     </Header>
   );
 };

@@ -11,6 +11,7 @@ import {ThemeProvider} from "styled-components";
 import theme from "../CSS_Styles/CSS";
 import {ApolloProvider} from "@apollo/react-hooks";
 import {useApollo} from "../lib/apolloClient";
+import Meta from "../partials/Meta";
 
 NProgress.configure({showSpinner: false, trickleSpeed: 300})
 

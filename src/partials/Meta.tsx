@@ -1,15 +1,28 @@
 import React from "react";
-import {NextSeo,BreadcrumbJsonLd} from "next-seo"
+import {NextSeo, BreadcrumbJsonLd} from "next-seo"
 
 interface IMetaProps {
     title: string
+    data: any
 }
 
-const Meta: React.FC<IMetaProps> = ({title}) => {
+const Meta: React.FC<IMetaProps> = ({title, data}) => {
     return (
         <>
-            <NextSeo nofollow={true} title={title} description="Zine User Pages"
-                     openGraph={{type: 'website', url: 'https://localhost:3000', title : "Zine_User"}}/>
+            <NextSeo title={title} description="Zine User Pages"
+                     openGraph={{
+                         type: 'website',
+                         url: 'https://localhost:3000',
+                         title: "",
+                         images: data?.articles.map((item : any) => {
+                             return {
+                                 url: item.squareThumbnail,
+                                 width: 300,
+                                 height: 300,
+                                 alt: item.subtitle
+                             }
+                         })
+                     }}/>
             <BreadcrumbJsonLd
                 itemListElements={[
                     {

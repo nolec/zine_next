@@ -98,10 +98,12 @@ const HeaderCSS = ({
   center,
   end,
 }: IHeaderCSSProps) => css`
+  z-index: 1;
   position: fixed;
   top: ${header?.top};
   width: 100%;
   background-color: #ffffff;
+  border-bottom : 1px solid #d4d4d4;
   #container {
     width: ${container?.width};
     height: ${container?.height};
@@ -130,10 +132,12 @@ const HeaderCSS = ({
     .content_box {
       display: flex;
       height: 100%;
-      > a {
+      > a,button {
+        all : unset;
         width: 43px;
         padding: 0 4px;
         margin: 0 6px;
+        cursor: pointer;
         .icon_box {
           width: 100%;
         }

@@ -25,7 +25,7 @@ const ContentMain = styled.div`
 `;
 
 const SectionFour = () => {
-    const {articlesData, articlesLoading} = useContext(Context);
+    const {postingData, postingFetchMore, postingLimit, postingTotal, handleLimit} = useContext(Context);
 
     return (
         <C_Section margin={"0 0 0 0"}>
@@ -37,7 +37,8 @@ const SectionFour = () => {
                         </C_TextBox>
                     </HeaderBox>
                     <ContentMain>
-                        <ContentItem articlesData={articlesData} count={4}/>
+                        <ContentItem articlesData={postingData} count={10} fetchMore={postingFetchMore} limit={postingLimit}
+                                     total={postingTotal?.totalCount} handleLimit={handleLimit} which={"third"}/>
                     </ContentMain>
                 </ContentBox>
             </Container>

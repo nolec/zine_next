@@ -5,7 +5,7 @@ import Main from "../components/Main";
 import { GetServerSidePropsContext } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { initializeApollo } from "../lib/apolloClient";
-import { GET_ARTICLES } from "../graphql";
+import {GET_ARTICLES_PLACE, GET_ARTICLES_POSTING, GET_ARTICLES_SPECIAL_ORDER} from "../graphql";
 
 interface IIndexProps {
   initialApolloState: {};
@@ -25,7 +25,16 @@ export const getServerSideProps = async (
   const apolloClient = initializeApollo();
 
   await apolloClient.query({
-    query: GET_ARTICLES,
+    query: GET_ARTICLES_PLACE,
+    variables : {limit : 3}
+  });
+  await apolloClient.query({
+    query: GET_ARTICLES_SPECIAL_ORDER,
+    variables : {limit : 2}
+  });
+  await apolloClient.query({
+    query: GET_ARTICLES_POSTING,
+    variables : {limit : 10}
   });
 
   return {
