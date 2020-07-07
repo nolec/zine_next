@@ -4,7 +4,9 @@ import styled from "styled-components";
 import ContentItem from "./ContentItem";
 import Context from "../../contextAPI/context";
 
-const Container = styled.div``;
+const Container = styled.div`
+  padding : 0 100px;
+`;
 const ContentBox = styled.div`
   display : flex;
   flex-direction: column;
@@ -12,16 +14,16 @@ const ContentBox = styled.div`
 `;
 const HeaderBox = styled.header`
   width : 100%;
-  border-bottom: 3px solid black;
 `;
 const Title = styled.h2`
     font-weight: bold;
-    font-size : 30px;
+  letter-spacing: -0.7px;
+  font-size : 20px;
 `;
 
 const ContentMain = styled.div`
     width : 100%;
-    padding : 10px 0;
+    padding : 20px 0 0 0;
 `;
 
 const SectionFour = () => {
@@ -32,12 +34,13 @@ const SectionFour = () => {
             <Container>
                 <ContentBox>
                     <HeaderBox>
-                        <C_TextBox width={"100%"} padding={"10px 0"}>
-                            <Title>Posting</Title>
+                        <C_TextBox width={"100%"} padding={"20px 0 0 0"} borderTop={"3px solid #ff7384"}>
+                            <Title>우리 동네 네일 맛집</Title>
                         </C_TextBox>
                     </HeaderBox>
                     <ContentMain>
-                        <ContentItem articlesData={postingData} count={10} fetchMore={postingFetchMore} limit={postingLimit}
+                        <ContentItem articlesData={postingData} count={3} fetchMore={postingFetchMore}
+                                     limit={postingLimit}
                                      total={postingTotal?.totalCount} handleLimit={handleLimit} which={"third"}/>
                     </ContentMain>
                 </ContentBox>

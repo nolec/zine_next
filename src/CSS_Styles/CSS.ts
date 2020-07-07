@@ -49,6 +49,7 @@ export const C_TextBox = styled.div<ISectionProps>`
   padding: ${(props) => props.padding};
   flex-basis: ${(props) => props.flexBasis};
   text-align: ${(props) => props.textAlign};
+  border-top: ${(props) => props.borderTop};
 `;
 
 export interface IBannerCSSProps {
@@ -103,7 +104,6 @@ const HeaderCSS = ({
   top: ${header?.top};
   width: 100%;
   background-color: #ffffff;
-  border-bottom : 1px solid #d4d4d4;
   #container {
     width: ${container?.width};
     height: ${container?.height};

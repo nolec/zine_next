@@ -12,16 +12,16 @@ const ContextProvider: React.FC = ({children}) => {
 
     const [placeLimit, setPlaceLimit] = useState(3)
     const [specialLimit, setSpecialLimit] = useState(2)
-    const [postingLimit, setPostingLimit] = useState(10)
+    const [postingLimit, setPostingLimit] = useState(3)
     const handleLimit = (which: string) => {
         if (which === "first") {
-            setPlaceLimit(placeLimit + 3);
+            setPlaceLimit(placeLimit);
         }
         if (which === "second") {
-            setSpecialLimit(specialLimit + 2);
+            setSpecialLimit(specialLimit);
         }
         if (which === "third") {
-            setPostingLimit(postingLimit + 10);
+            setPostingLimit(postingLimit);
         }
     }
     const {data: placeTotal} = useQuery(GET_TOTALCOUNT, {variables: {tag: "네일맛집"}})

@@ -30,7 +30,7 @@ export default () => {
   return (
     <Header
       header={{ top: top }}
-      container={{ width: "100%", height: "70px", padding: "0 10px" }}
+      container={{ width: "100%", height: "70px", padding: "0 100px" }}
       start={{}}
       center={{}}
       end={{}}

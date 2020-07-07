@@ -13,8 +13,8 @@
     <list default="true" id="e732daf5-b371-48ac-a28a-88779a353778" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CSS_Styles/CSS.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSS_Styles/CSS.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/CSS_Styles/Globalstyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSS_Styles/Globalstyles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Layout.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Sections/ContentItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sections/ContentItem.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Sections/SectionFour.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sections/SectionFour.tsx" afterDir="false" />
@@ -23,11 +23,6 @@
       <change beforePath="$PROJECT_DIR$/src/components/Sections/SectionTwo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sections/SectionTwo.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/contextAPI/contextProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/contextAPI/contextProvider.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graphql/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphql/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/[id]/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/[id]/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_document.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_document.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/partials/Meta.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/partials/Meta.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +72,8 @@
       <workItem from="1593647972571" duration="24855000" />
       <workItem from="1593680932874" duration="45000" />
       <workItem from="1593734712881" duration="24077000" />
-      <workItem from="1593993631921" duration="32969000" />
+      <workItem from="1593993631921" duration="33027000" />
+      <workItem from="1594080189008" duration="21755000" />
     </task>
     <servers />
   </component>
@@ -105,10 +101,10 @@
       <screen x="0" y="23" width="2560" height="1332" />
     </state>
     <state x="1093" y="412" key="#com.intellij.ide.util.MemberChooser/0.23.2560.1332/2560.23.1920.1057@0.23.2560.1332" timestamp="1593584295889" />
-    <state x="833" y="319" width="894" height="852" key="search.everywhere.popup" timestamp="1594032567142">
+    <state x="833" y="319" width="894" height="852" key="search.everywhere.popup" timestamp="1594098930677">
       <screen x="0" y="23" width="2560" height="1332" />
     </state>
-    <state x="833" y="319" width="894" height="852" key="search.everywhere.popup/0.23.2560.1332/2560.23.1920.1057@0.23.2560.1332" timestamp="1594032567142" />
+    <state x="833" y="319" width="894" height="852" key="search.everywhere.popup/0.23.2560.1332/2560.23.1920.1057@0.23.2560.1332" timestamp="1594098930677" />
     <state x="3185" y="258" width="670" height="676" key="search.everywhere.popup/0.23.2560.1332/2560.23.1920.1057@2560.23.1920.1057" timestamp="1593495063110" />
   </component>
 </project>

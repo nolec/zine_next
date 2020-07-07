@@ -29,8 +29,8 @@ export const GET_ARTICLES_PLACE = gql`
     }
 `;
 export const GET_ARTICLES_SPECIAL_ORDER = gql`
-    query getSpecialOrderArticles($limit : Int){
-        articles(includeInvisible: false,limit : $limit, tag : "트와이스") {
+    query getSpecialOrderArticles($limit : Int,$skip : Int){
+        articles(includeInvisible: false,skip : $skip,limit : $limit, tag : "트와이스") {
             id
             title
             subtitle
@@ -51,8 +51,8 @@ export const GET_ARTICLES_SPECIAL_ORDER = gql`
     }
 `;
 export const GET_ARTICLES_POSTING = gql`
-    query getPostingArticles($limit : Int){
-        articles(includeInvisible: false, limit : $limit, tag : "레드벨벳") {
+    query getPostingArticles($limit : Int,$skip : Int){
+        articles(includeInvisible: false,skip : $skip, limit : $limit, tag : "레드벨벳") {
             id
             title
             subtitle

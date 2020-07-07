@@ -10,7 +10,7 @@ ${reset};
     box-sizing: border-box;
   }
   body{
-    font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+     font-family: GmarketSans ;
     color: #2b2b2b;
   }
   a {

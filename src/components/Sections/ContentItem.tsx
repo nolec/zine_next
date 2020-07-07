@@ -1,10 +1,12 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {C_ImgBox, C_TextBox} from "../../CSS_Styles/CSS";
 import styled from "styled-components";
 import Link from "next/link";
+import MoreBtn from "../MoreBtn";
 
 interface IContentProps {
-    length?: number;
+    length?: number | undefined;
+    marginCount?: number[];
 }
 
 interface IProps {
@@ -17,49 +19,60 @@ interface IProps {
     which: string
 }
 
-const Ul = styled.ul`
+const Ul = styled.ul<IContentProps>`
       display : flex;
       flex-flow: wrap row;
       width : 100%;
       position : relative;
 `;
 const ItemLi = styled.li<IContentProps>`
-  width : ${props => `calc(100%/${props.length})`};
-  padding : 0 1%;
-  // margin-left: ${props => `calc(1% / ${props.length})`};
-  //   margin-right: ${props => `calc(1% / ${props.length})`};
-`;
-const ItemContainer = styled.div`
-`;
-const A = styled.a`
-`;
-const AContainer = styled.div`
-    height : 100%;
-    display : flex;
-    flex-flow : wrap column;
-`;
-const Title = styled.h3``;
-const Text = styled.p``;
-
-const MoreBox = styled.div`
-  width : 100%;
-  display :flex;
-  justify-content: center;
-  align-items: center;
-  margin : 10px 0;
-`;
-const More = styled.div`
-    padding : 10px 30px;
-    cursor : pointer;
-    border : 1px solid;
-    transition : .1s linear;
-    :hover {
-      background-color : black;
-      color : white;
-    }
-`;
+  width : ${props => `calc(100%/${props.length} - ${props.length % 3 === 0 ? 12 : 18}px)`};
+  ${props => {
+        return props.marginCount.map((item: any) : any => {
+            if (props.length % 3 === 0) {
+                return `&:nth-of-type(${item - 1}){margin-right : 18px; margin-left : 18px;}`
+            }
+            if (props.length % 2 === 0) {
+                return `&:nth-of-type(${item - 1}){margin-right : 18px;} &:nth-of-type(${item - 2}){margin-left : 18px;}`
+            }
+        })
+    }}
+`
+;
+const ItemContainer = styled.div
+    `
+`
+;
+const A = styled.a
+    `
+`
+;
+const AContainer = styled.div
+    `
+height : 100%;
+display : flex;
+flex-flow : wrap column;
+`
+;
+const Title = styled.h3
+    ``
+;
+const Text = styled.p
+    ``
+;
 
 const ContentItem: React.FC<IProps> = ({articlesData, count, fetchMore, limit, total, handleLimit, which}) => {
+    const [marginCount, setMarginCount] = useState([count]);
+    const handleMarginCount = () => {
+        const copy = marginCount;
+        marginCount.map(item => {
+            const it = item + count;
+            copy.push(it);
+        });
+        const result = Array.from(new Set(copy));
+        console.log(result);
+        setMarginCount(result);
+    }
     return (
         <>
             <Ul>
@@ -67,9 +80,12 @@ const ContentItem: React.FC<IProps> = ({articlesData, count, fetchMore, limit, t
                     return (
                         <ItemLi
                             length={articlesData?.articles?.length <= count ? articlesData?.articles?.length : count}
+                            marginCount={marginCount}
                             key={index}>
                             <ItemContainer>
-                                <Link href="/[id]" as={`/${item.id}`}>
+                                <Link href="/[id]" as={
+                                    `/${item.id}`
+                                }>
                                     <A>
                                         <AContainer>
                                             <C_ImgBox height={"300px"} width={"100%"}>
@@ -85,32 +101,11 @@ const ContentItem: React.FC<IProps> = ({articlesData, count, fetchMore, limit, t
                             </ItemContainer>
                         </ItemLi>
                     )
-
                 })}
-
             </Ul>
-            {console.log(which, articlesData?.articles.length, total, limit)}
-            {total <= articlesData?.articles.length ? <></> : <MoreBox>
-                <More onClick={() => {
-                    handleLimit(which);
-                    fetchMore({
-                        variables: {
-                            limit: 3,
-                            skip : 3 * (limit/3)
-                        },
-                        updateQuery: (prev: { articles: any; }, {fetchMoreResult}: any) => {
-                            if (!fetchMoreResult) return {};
-                            const result = Object.assign({}, prev, {articles : [...prev.articles, ...fetchMoreResult.articles]});
-                            console.log(result)
-                            return result
-                        }
-                    })
-                }}>
-                    <span>More</span>
-                    </More>
-                    </MoreBox>}
-
-                </>
-                )
-                }
-            export default ContentItem;
+            {total <= articlesData?.articles.length ? null : (
+                <MoreBtn handleMarginCount={handleMarginCount} limit={limit} fetchMore={fetchMore}/>)}
+        </>
+    )
+}
+export default ContentItem;
