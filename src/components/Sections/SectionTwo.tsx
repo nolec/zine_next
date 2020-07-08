@@ -33,7 +33,7 @@ const SectionTwo: React.FC = () => {
             <Container>
                 <ContentBox>
                     <HeaderBox>
-                        <C_TextBox width={"100%"} padding={"20px 0 0 0"} borderTop={"3px solid #ff7384"}>
+                        <C_TextBox width={"100%"} padding={"20px 0 0 0"}>
                             <MainTitle>JUN, 2020</MainTitle>
                         </C_TextBox>
                     </HeaderBox>

@@ -1,22 +1,23 @@
-import styled, { css } from "styled-components";
+import styled, {css} from "styled-components";
 
 interface ISectionProps {
-  position?: string;
-  top?: string;
-  left?: string;
-  right?: string;
-  zIndex?: number;
-  display?: string;
-  bgColor?: string;
-  minWidth?: string;
-  width?: string;
-  height?: string;
-  margin?: string;
-  padding?: string;
-  borderTop?: string;
-  aI?: string;
-  flexBasis?: string;
-  textAlign?: string;
+    position?: string;
+    fontSize? : string;
+    top?: string;
+    left?: string;
+    right?: string;
+    zIndex?: number;
+    display?: string;
+    bgColor?: string;
+    minWidth?: string;
+    width?: string;
+    height?: string;
+    margin?: string;
+    padding?: string;
+    borderTop?: string;
+    aI?: string;
+    flexBasis?: string;
+    textAlign?: string;
 }
 
 export const C_Section = styled.section<ISectionProps>`
@@ -50,33 +51,40 @@ export const C_TextBox = styled.div<ISectionProps>`
   flex-basis: ${(props) => props.flexBasis};
   text-align: ${(props) => props.textAlign};
   border-top: ${(props) => props.borderTop};
+  color : ${(props) => props.color};
+  font-size: ${(props) => props.fontSize};
 `;
 
 export interface IBannerCSSProps {
-  banner?: {
-    margin?: string;
-    padding?: string;
-  };
-  container?: {
-    width?: string;
-    height?: string;
-    padding?: string;
-  };
-  contentBox?: {
-    margin?: string;
-  };
+    banner?: {
+        margin?: string;
+        padding?: string;
+    };
+    container?: {
+        width?: string;
+        height?: string;
+        padding?: string;
+    };
+    contentBox?: {
+        margin?: string;
+    };
 }
 
 export interface IHeaderCSSProps extends IBannerCSSProps {
-  header?: { top?: string };
-  start?: {
-    width?: string;
-  };
-  center?: {};
-  end?: {};
+    header?: { top?: string }
+    area?: {
+        width?: string;
+        height?: string;
+        padding?: string;
+    }
+    start?: {
+        width?: string;
+    };
+    center?: {};
+    end?: {};
 }
 
-const BannerCSS = ({ banner, container, contentBox }: IBannerCSSProps) => css`
+const BannerCSS = ({banner, container, contentBox}: IBannerCSSProps) => css`
   color: white;
   padding: ${banner?.padding};
   #container {
@@ -85,22 +93,26 @@ const BannerCSS = ({ banner, container, contentBox }: IBannerCSSProps) => css`
     padding: ${container?.padding};
     .content_box {
       height: 100%;
-      background-color: #000000;
+      background-color: #f4b8c3;
       display: flex;
       justify-content: center;
       align-items: center;
+      font-size: 20px;
+      line-height: 1.65;
+      letter-spacing: 6.37px;
     }
   }
 `;
 const HeaderCSS = ({
-  header,
-  container,
-  start,
-  center,
-  end,
-}: IHeaderCSSProps) => css`
+                       header,
+                       container,
+                       area,
+                       start,
+                       center,
+                       end,
+                   }: IHeaderCSSProps) => css`
   z-index: 1;
-  position: fixed;
+  position: static;
   top: ${header?.top};
   width: 100%;
   background-color: #ffffff;
@@ -108,53 +120,86 @@ const HeaderCSS = ({
     width: ${container?.width};
     height: ${container?.height};
     padding: ${container?.padding};
-    display: flex;
+  }
+  #area {
+    width: ${area?.width};
+    height: ${area?.height};
+    padding: ${area?.padding};  
+    display : flex;
     justify-content: space-between;
-    align-items: center;
-    .icon_box {
-      width: 49px;
-      svg {
-        font-size: 50px;
-        width: 100%;
-      }
+    >div{
+        display : flex;
+        align-items: center;
+        > div {
+          display : flex;
+        }
     }
   }
   #start {
-    .back {
-      display: block;
-      width: 49px;
-      height: 100%;
+      flex-basis: 25%;
+    .hamburger {
+      width: 52px;
+      height : 42px;
+      svg {
+        font-size: 50px;
+        width: 100%;
+        height : 100%;
+      }
+      > button {
+        all : unset;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 0;
+        cursor: pointer;
+      }
     }
   }
   #center {
+    flex-basis: 50%;
+    justify-content : center;
+    .home_title {
+    font-size: 75px;
+    font-weight: 300;
+    }
   }
   #end {
-    .content_box {
-      display: flex;
-      height: 100%;
-      > a,button {
-        all : unset;
-        width: 43px;
-        padding: 0 4px;
-        margin: 0 6px;
-        cursor: pointer;
-        .icon_box {
-          width: 100%;
-        }
-        &:first-child {
-          margin-left: 0;
-        }
-        &:last-child {
-          margin-right: 0;
-        }
+    flex-basis: 25%;
+    justify-content: flex-end;
+    position : relative;
+    .content_box > div {
+      &.search {
+        margin-right: 30px;
       }
+      &.go_shop {
+      position : absolute;
+      left : 0%;
+      top : 50%;
+      transform: translate(-30%, -50%);
+      width : 230px;
+      height : 50px;
+    }
+      width: 40px;
+      height : 40px;
+      svg {
+        width: 100%;
+        height: 100%;
+      }
+       button {
+        all : unset;
+        padding: 0;
+        width: 100%;
+        height: 100%;
+        line-height: 0;
+        cursor: pointer;
+      }    
     }
   }
 `;
 const theme = {
-  css: {
-    banner: BannerCSS,
-    header: HeaderCSS,
-  },
+    css: {
+        banner: BannerCSS,
+        header: HeaderCSS,
+    },
 };
 export default theme;

@@ -5,118 +5,119 @@ import Context from "../../contextAPI/context";
 import Link from "next/link";
 
 const Container = styled.div`
-  padding : 0 100px;
+    padding : 75px 0 0 0;
 `;
-const ContentBox = styled.div`
+const Area = styled.div`
   display: flex;
   flex-wrap: nowrap;
-  height : 795px;
+  height : 750px;
 `;
 const Left = styled.div`
   height: 100%;
   flex-basis: 65%;
-  border-right: solid 1px #e2e2e2;
   display: flex;
   flex-direction: column;
   padding : 0 20px 0 0;
 `;
 const Right = styled.div`
-  flex-basis: 35%;
-  display : grid;
-  grid-template-rows: 1fr 1fr 1fr;
-  padding : 0 0 0 20px;
-   height : 100%;
-  > div {
-  padding-bottom : 30px;
-  }
+
 `;
 
 //--------Left--------------------------------
-const MainTitle = styled.h2`    
-  font-weight: bold;
-  letter-spacing: -0.7px;
-  font-size : 20px;`;
+const MainTitle = styled.h2`  
+  font-family: GmarketSans;
+  letter-spacing: -1.39px;  
+    font-weight: 500;
+  `;
 const Title = styled.h3`
-  letter-spacing: -0.62px;
-  color: #252525;
-  font-size: 24px;
+  font-family: AppleSDGothicNeo;
+  font-size: 50px;
   font-weight: bold;
-  padding : 0 0 5px 0;
-    text-align: left;
+  letter-spacing: -1.3px;
+  color: #252525;
 `;
 const Text = styled.p`
-  text-align: left;
-    font-family: AppleSDGothicNeo;
-  font-size: 12.1px;
+  font-family: AppleSDGothicNeo;
+  font-size: 25px;
   font-weight: 500;
-   letter-spacing: -0.3px;
-    color: #666666;
+  letter-spacing: -0.64px;
+  text-align: left;
+  color: #666666;
 `;
-const TagBox = styled.div``;
+const TagBox = styled.div`
+    margin-top : 38px;
+    display: flex;
+`;
 const Tags = styled.div`
-font-size : 12px;
+  font-family: AppleSDGothicNeo;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: -0.39px;
+  color: #545454;
+  padding : 6.5px 17px;
+  border : 1px solid;
 `;
 const ItemContainer = styled.div`
-height : 100%;
-      :not(:last-child){
-    border-bottom: solid 1px #e2e2e2;
-    }
+  height : 100%;
+  :not(:last-child){}
 `;
-
-//--------Right--------------------------------
 const Item = styled.div`
   display: flex;
   height : 100%;
-`;
-const LinkBox = styled.div`
+  .detail_box {
     height : 100%;
-    &:first-child {
-        flex-basis : 40%;
+    display : flex;
+    flex-direction: row-reverse;
+    padding : 57px 0 0 18px;
+    .a_box {
+      position : relative;
+      flex-basis: 40%;
+      border-bottom : 2px solid;
+      a {
+      position : absolute;
+      right : 0;
+      bottom : 33px;
+      padding : 16px 118px 16px 33px;
+      border : 1px solid #e2e2e2;
+      }
     }
-    &:last-child {
-        flex-basis: 60%;
-    }
+  }
 `;
 
 const SectionOne = () => {
     const {placeData, specialOrderData, postingData} = useContext(Context);
 
     return (
-        <C_Section margin={"70px 0 0 0"}>
+        <C_Section margin={"0 0 0 0"}>
             <Container>
-                <C_TextBox width={"200px"} padding={"20px 0 20px 0"} borderTop={"3px solid #ff7384"}>
-                    <MainTitle>UP TO DATA POST</MainTitle>
-                </C_TextBox>
-                <ContentBox>
+                {/*<C_TextBox width={"100%"} padding={"75px 0"} textAlign={"center"} color={"#f4b8c3"} fontSize={"40px"}>*/}
+                {/*    <MainTitle>SPECIAL ORDER</MainTitle>*/}
+                {/*</C_TextBox>*/}
+                <Area>
                     <Left>
                         <ItemContainer>
-                            <Item style={{flexDirection : "column"}}>
-                                <LinkBox style={{height : "80%"}}>
-                                    <Link href="/[id]" as={`/${placeData?.articles[0]?.id}`}>
-                                        <a>
-                                            <C_ImgBox height={"100%"}>
-                                                <img src={placeData?.articles[0]?.squareThumbnail}/>
-                                            </C_ImgBox>
-                                        </a>
-                                    </Link>
-                                </LinkBox>
-                                <LinkBox>
-                                    <Link href="/[id]" as={`/${placeData?.articles[0]?.id}`}>
-                                        <a>
-                                            <C_TextBox textAlign={"center"}>
-                                                <Title style={{
-                                                    textAlign: "center",
-                                                    fontSize: "40px",
-                                                    padding: "30px 0 10px 0"
-                                                }}>{placeData?.articles[0]?.title}</Title>
-                                                <Text
-                                                    style={{textAlign: "center"}}>{placeData?.articles[0]?.subtitle}</Text>
-                                                <TagBox>{placeData?.articles[0]?.tags.map((item: any) =>
-                                                    <Tags>{item}</Tags>)}</TagBox>
-                                            </C_TextBox>
-                                        </a>
-                                    </Link>
-                                </LinkBox>
+                            <Item style={{flexDirection: "column"}}>
+                                <C_ImgBox height={"calc(100% - 200px)"}>
+                                    <img src={placeData.articles[0].squareThumbnail}/>
+                                </C_ImgBox>
+                                <div className="detail_box">
+                                    <div className="a_box">
+                                        <Link href="/[id]" as={`/${placeData.articles[0].id}`}>
+                                            <a>
+                                            <span>
+                                                보러가기
+                                            </span>
+                                            </a>
+                                        </Link>
+                                    </div>
+                                    <C_TextBox flexBasis={"60%"}>
+                                        <Title>{placeData.articles[0].title}</Title>
+                                        <Text>{placeData.articles[0].subtitle}</Text>
+                                        <TagBox>{placeData.articles[0].tags.map((it: any) =>
+                                            <Tags>{it}</Tags>)}
+                                        </TagBox>
+                                    </C_TextBox>
+                                </div>
                             </Item>
                         </ItemContainer>
                     </Left>
@@ -124,35 +125,35 @@ const SectionOne = () => {
                         placeData?.articles?.map((item: any) => {
                             return <ItemContainer>
                                 <Item>
-                                    <LinkBox>
-                                        <Link href="/[id]" as={`/${item.id}`}>
-                                            <a>
-                                                <C_ImgBox height={"200px"}>
-                                                    <img src={item.squareThumbnail}/>
-                                                </C_ImgBox>
-                                            </a>
-                                        </Link>
-                                    </LinkBox>
-                                    <LinkBox>
-                                        <Link href="/[id]" as={`/${item.id}`}>
-                                            <a>
-                                                <C_TextBox>
-                                                    <Title>{item.title}</Title>
-                                                    <Text>{item.subtitle}</Text>
-                                                    <TagBox>{item.tags.map((it: any) => <Tags>{it}</Tags>)}</TagBox>
-                                                </C_TextBox>
-                                            </a>
-                                        </Link>
-                                    </LinkBox>
+                                    {/*<LinkBox>*/}
+                                    {/*    <Link href="/[id]" as={`/${item.id}`}>*/}
+                                    {/*        <a>*/}
+                                    {/*            <C_ImgBox height={"200px"}>*/}
+                                    {/*                <img src={item.squareThumbnail}/>*/}
+                                    {/*            </C_ImgBox>*/}
+                                    {/*        </a>*/}
+                                    {/*    </Link>*/}
+                                    {/*</LinkBox>*/}
+                                    {/*<LinkBox>*/}
+                                    {/*    <Link href="/[id]" as={`/${item.id}`}>*/}
+                                    {/*        <a>*/}
+                                    {/*            <C_TextBox>*/}
+                                    {/*                <Title>{item.title}</Title>*/}
+                                    {/*                <Text>{item.subtitle}</Text>*/}
+                                    {/*                <TagBox>{item.tags.map((it: any) => <Tags>{it}</Tags>)}</TagBox>*/}
+                                    {/*            </C_TextBox>*/}
+                                    {/*        </a>*/}
+                                    {/*    </Link>*/}
+                                    {/*</LinkBox>*/}
 
                                 </Item>
                             </ItemContainer>
                         })
                     }
                     </Right>
-                </ContentBox>
+                </Area>
             </Container>
         </C_Section>
-);
+    );
 };
 export default SectionOne;

@@ -7,19 +7,22 @@ import SectionFour from "./Sections/SectionFour";
 import styled from "styled-components";
 
 const Main = styled.main`
-  padding : 100px 0 0 0;
+  padding : 0 0 0 0;
   color : #ff7384;
+`;
+const Container = styled.div`
 `;
 
 export default () => {
     return (
         <Main>
-            <SectionOne/>
-            <Banner container={{height: "121px", padding: "0 0"}} banner={{padding: "120px 0"}}
-                    title="중간 배너"/>
-            <SectionTwo/>
-            <SectionThree/>
-            <SectionFour/>
+            <Container>
+                <Banner container={{ height: "70px" }} title="SARACEN WEB MAGAZINE" />
+                <SectionOne/>
+                <SectionTwo/>
+                <SectionThree/>
+                <SectionFour/>
+            </Container>
             {/*<Banner container={{height: "150px", padding: "0 0"}} banner={{padding: "120px 0 0 0"}}*/}
             {/*        title="푸터 배너"/>*/}
         </Main>

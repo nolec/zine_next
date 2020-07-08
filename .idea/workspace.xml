@@ -11,18 +11,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e732daf5-b371-48ac-a28a-88779a353778" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/public/images/01_자인_헤더_돋보기.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/01_자인_헤더_로그인.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/01_자인_헤더_쇼핑몰바로가기.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/01_자인_헤더_타이틀.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/images/zine_hamburger.svg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/CSS_Styles/CSS.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSS_Styles/CSS.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/CSS_Styles/Globalstyles.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/CSS_Styles/Globalstyles.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Header.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Header.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Main.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sections/ContentItem.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sections/ContentItem.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sections/SectionFour.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sections/SectionFour.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Sections/SectionOne.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sections/SectionOne.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Sections/SectionThree.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sections/SectionThree.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Sections/SectionTwo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Sections/SectionTwo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/contextAPI/contextProvider.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/contextAPI/contextProvider.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/graphql/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/graphql/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/index.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,15 +45,18 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/node_modules/typescript/lib" />
   </component>
+  <component name="ReadonlyStatusHandler">
+    <option name="SHOW_DIALOG" value="false" />
+  </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/public/images" />
+      <recent name="$PROJECT_DIR$/src" />
       <recent name="$PROJECT_DIR$/public" />
       <recent name="$PROJECT_DIR$/src/pages/CSS_Styles" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -73,7 +77,10 @@
       <workItem from="1593680932874" duration="45000" />
       <workItem from="1593734712881" duration="24077000" />
       <workItem from="1593993631921" duration="33027000" />
-      <workItem from="1594080189008" duration="21755000" />
+      <workItem from="1594080189008" duration="22135000" />
+      <workItem from="1594166447084" duration="2608000" />
+      <workItem from="1594177318870" duration="923000" />
+      <workItem from="1594178426451" duration="16795000" />
     </task>
     <servers />
   </component>
@@ -101,10 +108,31 @@
       <screen x="0" y="23" width="2560" height="1332" />
     </state>
     <state x="1093" y="412" key="#com.intellij.ide.util.MemberChooser/0.23.2560.1332/2560.23.1920.1057@0.23.2560.1332" timestamp="1593584295889" />
-    <state x="833" y="319" width="894" height="852" key="search.everywhere.popup" timestamp="1594098930677">
+    <state x="833" y="319" width="894" height="852" key="search.everywhere.popup" timestamp="1594185677171">
       <screen x="0" y="23" width="2560" height="1332" />
     </state>
-    <state x="833" y="319" width="894" height="852" key="search.everywhere.popup/0.23.2560.1332/2560.23.1920.1057@0.23.2560.1332" timestamp="1594098930677" />
+    <state x="833" y="319" width="894" height="852" key="search.everywhere.popup/0.23.2560.1332/2560.23.1920.1057@0.23.2560.1332" timestamp="1594185677171" />
     <state x="3185" y="258" width="670" height="676" key="search.everywhere.popup/0.23.2560.1332/2560.23.1920.1057@2560.23.1920.1057" timestamp="1593495063110" />
+    <state x="1010" y="533" key="vcs.readOnlyHandler.ReadOnlyStatusDialog" timestamp="1594178526964">
+      <screen x="0" y="23" width="2560" height="1332" />
+    </state>
+    <state x="1010" y="533" key="vcs.readOnlyHandler.ReadOnlyStatusDialog/0.23.2560.1332/2560.23.1920.1057@0.23.2560.1332" timestamp="1594178526964" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/components/Sections/ContentItem.tsx</url>
+          <line>34</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/CSS_Styles/CSS.ts</url>
+          <line>144</line>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

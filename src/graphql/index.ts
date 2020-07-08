@@ -8,7 +8,7 @@ export const GET_TOTALCOUNT = gql`
 
 export const GET_ARTICLES_PLACE = gql`
     query getPlaceArticles($limit : Int,$skip : Int){
-        articles(includeInvisible: false,skip : $skip,  limit : $limit, tag : "네일맛집") {
+        articles(includeInvisible: false,skip : $skip,  limit : $limit, tag : "레드벨벳") {
             id
             title
             subtitle

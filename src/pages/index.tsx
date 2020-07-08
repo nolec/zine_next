@@ -6,6 +6,7 @@ import { GetServerSidePropsContext } from "next";
 import { ParsedUrlQuery } from "querystring";
 import { initializeApollo } from "../lib/apolloClient";
 import {GET_ARTICLES_PLACE, GET_ARTICLES_POSTING, GET_ARTICLES_SPECIAL_ORDER} from "../graphql";
+import {Test} from "../components/Test";
 
 interface IIndexProps {
   initialApolloState: {};
@@ -13,7 +14,6 @@ interface IIndexProps {
 export default ({ initialApolloState }: IIndexProps) => {
   return (
     <>
-      <Banner container={{ height: "60px" }} title="탑 배너" />
       <Header />
       <Main />
     </>
